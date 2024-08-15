@@ -1,0 +1,4 @@
+SELECT
+   TO_CHAR(PKG_DASHBOARD.GET_LAST_DATE_BUILD, 'DD.MM.YYYY') as "<b>Дата</b>"
+,  TO_CHAR(PKG_DASHBOARD.GET_TARGET_INDICATOR()*100, '990D00') as  "<b>Целевой показатель, %</b>"
+FROM DUAL

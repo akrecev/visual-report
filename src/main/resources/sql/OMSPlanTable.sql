@@ -1,0 +1,28 @@
+WITH TT AS
+(
+select
+  XDATA
+, TO_NUMBER(YDATA) as YDATA
+, DATASET_NAME
+, FILTER_NAME
+, FILTER_DATA
+from DASHBOARD_DATA
+where
+     ELEMENT_ID = 'OMSPlan'
+ and COALESCE(IS_ACTIVE, '1') = '1'
+ and FILTER_NAME = 'DEPARTMENT'
+ and FILTER_DATA =  COALESCE(:1, FILTER_DATA)
+)
+SELECT distinct
+  tt.XDATA as "<b>Дата</b>"
+, COALESCE((SELECT SUM(COALESCE(t.YDATA, 0)) FROM TT t WHERE t.XDATA = tt.XDATA and t.DATASET_NAME = 'PLAN'), 0) as "<b>План</b>"
+, COALESCE((SELECT SUM(COALESCE(t.YDATA, 0)) FROM TT t WHERE t.XDATA = tt.XDATA and t.DATASET_NAME = 'FACT'), 0) as "<b>Факт</b>"
+, case
+    when COALESCE((SELECT SUM(COALESCE(t.YDATA, 0)) FROM TT t WHERE t.XDATA = tt.XDATA and t.DATASET_NAME = 'PLAN'), 0) != 0
+       then
+         ROUND(COALESCE((SELECT SUM(COALESCE(t.YDATA, 0)) FROM TT t WHERE t.XDATA = tt.XDATA and t.DATASET_NAME = 'FACT'), 1)
+        /(SELECT SUM(COALESCE(t.YDATA, 0)) FROM TT t WHERE t.XDATA = tt.XDATA and t.DATASET_NAME = 'PLAN')*100, 2)
+       else 0
+  end "<b>% выполнения</b>"
+FROM TT tt
+ORDER BY TO_DATE('01'||tt.XDATA, 'dd.mm.yyyy')

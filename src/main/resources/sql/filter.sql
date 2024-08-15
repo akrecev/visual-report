@@ -1,0 +1,1 @@
+ select  1 as id, 'Ko' as name from dual union select  1 as id, 'To' as name from dual 

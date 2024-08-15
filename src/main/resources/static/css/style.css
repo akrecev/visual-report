@@ -1,0 +1,135 @@
+@font-face {
+font-family: 'Jost';
+src: url("../font/Jost/Jost-Regular.ttf") format("opentype");
+font-style: normal;
+font-weight: normal;
+ }
+
+ @font-face {
+font-family: 'PlayfairDisplaySC';
+src: url("../font/Playfair/PlayfairDisplaySC-Regular.ttf") format("opentype");
+font-style: normal;
+font-weight: normal;
+ }
+
+
+/** Body */
+#body {
+  position: relative;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+
+/**NAVBAR*/
+.navbar {
+	background-color: white;
+	height: 8vh;
+	border-bottom: 0.1rem solid #9f2b50;
+}
+
+.navbar-brand {
+	align-items: center;
+	display: flex;
+}
+
+.navbar-brand .brand-name {
+	color: #9f2b50;
+	margin-left: 0.5rem;
+	margin-bottom: 1rem;
+	font-family: Jost;
+	font-weight: bold;
+	font-size: 2rem;
+	min-width: 35vw;
+}
+
+/* Wrapper */
+.wrapper {
+  display: flex;
+  align-items: stretch;
+  flex: 1 1 auto;
+  width: 100vw;
+}
+
+.container {
+    max-width: 90vw;
+}
+
+.btn:focus {
+  outline: none!important;
+  box-shadow: none!important;
+}
+
+.btn-primary {
+  background-color: #9f2b50!important;
+  color: #ffffff!important;
+  border:none;
+}
+
+.btn-primary:hover {
+  background-color: #ffffff!important;
+  color:#9f2b50!important;
+}
+
+h2, .h2 {
+  font-size: 1.99938rem;
+}
+
+/*Chart-container for charts responsive behaviour*/
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 30vh;
+
+}
+
+
+.container,
+.container-fluid,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.col-6 {
+  flex: 0 0 49%;
+  max-width: 49%;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #ffffff;
+  background-clip: border-box;
+  border: 1px solid #e5e9f2;
+  border-radius: 0.25rem;
+}
+
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid #e5e9f2;
+}
+
+/* Card Mini */
+.card-mini .chart-container {
+      position: relative;
+      height: 18vh;
+}
+
+
+.table .table-dark {
+    color: #9f2b50;
+    background-color: white;
+    text-transform: uppercase;
+}

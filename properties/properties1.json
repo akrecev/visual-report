@@ -1,0 +1,167 @@
+{"pages" :
+	[
+		{
+				"name":"index",
+				"maxRows": 3,
+				"maxColumns": 2,
+				"elements":
+				[
+					{
+						"id": "money",
+						"name": "Исполнение плана ОМС",
+						"row": "1",
+						"column" : "1",
+						"type":"table",
+						"dataSource": "OMSPlanTable.sql"
+					},
+					{
+						"id": "averageBill",
+						"name": "Средний чек",
+						"row": "1",
+						"column" : "2",
+						"type":"chart",
+						"chartData":
+							{
+							    "LINE":["averageBill.sql"]
+							}
+					},
+					{
+						"id": "registryState",
+						"name": "Состояние очереди РДО",
+						"row": "1",
+						"column" : "3",
+						"type":"chart",
+						"chartData":
+							{
+								"LINE":["queueRegistration.sql", "queueKT.sql", "queueCash.sql"
+								,"queueInternetPayment.sql", "queueTerminal.sql", "queueOutOf.sql"
+								,"queueMotherChild.sql", "queuePassPrint.sql"]
+							},
+						"interval" : "10000"
+					},
+					{
+						"id": "OMSPlan",
+						"name": "Исполнение плана ОМС",
+						"row": "2",
+						"column" : "1",
+						"type":"chart",
+						"chartData":
+							{
+								"BAR":["OMSPlan.sql"]
+							}
+					}
+						,
+					{
+						"id": "paidPlan",
+						"name": "Исполнение плана ПУ",
+						"row": "2",
+						"column" : "2",
+						"type":"chart",
+						"chartData":
+							{
+								"BAR":["paidPlan.sql"]
+							}
+					},
+					{
+						"id": "conversion",
+						"name": "Обращаемость, &#37; недохода",
+						"row": "3",
+						"column" : "1",
+						"type":"chart",
+						"chartData":
+						{
+							"BAR":["conversion.sql"]
+						}
+					},
+					{
+						"id": "durationOfStay",
+						"name": "Срок обследования - лечения",
+						"row": "3",
+						"column" : "2",
+						"type":"chart",
+						"chartData":
+						{
+							"BAR":["durationOfStay.sql"]
+						}
+					},
+					{
+					"id": "departments",
+					"name": "По подразеделениям",
+					"type":"filter",
+					"dataSource": "filter.sql"
+					}
+				]
+			},
+			{
+				"name":"departments",
+				"maxRows": 3,
+				"maxColumns": 2,
+				"elements":
+				[
+					{
+					"id": "money2",
+					"name": "Исполнение плана ОМС",
+					"row": "1",
+					"column" : "1",
+					"type":"table",
+					"dataSource": "OMSPlanTable.sql"
+					},
+					{
+						"id": "averageBill2",
+						"name": "Средний чек",
+						"row": "1",
+						"column" : "2",
+						"type":"chart",
+						"chartData":
+							{
+							    "LINE":["averageBill.sql"]
+							}
+					},
+					{
+						"id": "OMSPlan2",
+						"name": "Исполнение плана ОМС",
+						"row": "2",
+						"column" : "1",
+						"type":"chart",
+						"chartData":
+							{
+								"BAR":["OMSPlan.sql"]
+							}
+					},
+					{
+						"id": "paidPlan2",
+						"name": "Исполнение плана ПД",
+						"row": "2",
+						"column" : "2",
+						"type":"chart",
+						"chartData":
+							{
+								"BAR":["paidPlan.sql"]
+							}
+					},
+					{
+						"id": "conversion2",
+						"name": "Обращаемость, &#37; недохода",
+						"row": "3",
+						"column" : "1",
+						"type":"chart",
+						"chartData":
+						{
+							"BAR":["conversion.sql"]
+						}
+					},
+					{
+						"id": "durationOfStay2",
+						"name": "Срок обследования - лечения",
+						"row": "3",
+						"column" : "2",
+						"type":"chart",
+						"chartData":
+						{
+							"BAR":["durationOfStay.sql"]
+						}
+					}
+				]
+			}
+	]
+}

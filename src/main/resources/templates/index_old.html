@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"
+	  xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+  <head>
+    <title>Визуальный отчёт</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link media="all" rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <link media="all" rel="stylesheet" href="css/style.css" type="text/css"/>
+	<script type="module" src="js/app.js"></script>
+  </head>
+  <body>
+  	<nav class="navbar navbar-expand-sm">
+  	<!-- Название проекта -->
+  		<a class="navbar-brand" href="#">
+  		<img src="img/okdc_logo_header_xsmall.png"  class="d-inline-block align-top" alt="">
+  		<span class="brand-name" id="app-name">Ключевые показатели на
+	  		<span id="app-current-date">
+	  		</span>
+  		</span>
+  		</a>
+		<div class="container">
+			<div class="row mt-3 mb-4">
+				<div class="col d-flex">
+				<button type="button" id="index" class="filter btn btn-primary mx-1 text-dark" onclick="document.getElementById('depBut').innerHTML = 'По подразделениям'; return false;">Главная</button>
+					<div class="btn-group" style="display: flex;">
+						<button id = "depBut" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="min-width: 15em;" >
+							По подразделениям
+						</button>
+						<div class="dropdown-menu">
+							<a id = "departments@3"  class="filter dropdown-item" href=# >Консультативный отдел</a>
+							<a id = "departments@4"  class="filter dropdown-item" href=# >ТО</a>
+							<a id = "departments@12" class="filter dropdown-item" href=# >Дневной стационар</a>
+							<a id = "departments@14" class="filter dropdown-item" href=# >РХМДЛ</a>
+							<a id = "departments@83" class="filter dropdown-item" href=# >ЛОР-стационар</a>
+							<a id = "departments@16"  class="filter dropdown-item" href=#>Лучевая диагностика (МРТ СКТ рентген)</a>
+							<a id = "departments@19"  class="filter dropdown-item" href=#>УЗИ</a>
+							<a id = "departments@18"  class="filter dropdown-item" href=#>Функц. диагностика</a>
+							<a id = "departments@8"   class="filter dropdown-item" href=#>Физиотерапия</a>
+							<a id = "departments@17"  class="filter dropdown-item" href=#>Эндоскопия</a>
+							<a id = "departments@66"  class="filter dropdown-item" href=#>Молекулярная биология</a>
+							<a id = "departments@299" class="filter dropdown-item" href=#>Молекулярная биология(COVID-19_Грипп_ОРВИ)</a>
+							<a id = "departments@23"  class="filter dropdown-item" href=#>Цитология</a>
+							<a id = "departments@59"  class="filter dropdown-item" href=#>Микробиология</a>
+							<a id = "departments@22"  class="filter dropdown-item" href=#>Иммунология</a>
+							<a id = "departments@21"  class="filter dropdown-item" href=#>Клинико-гематология</a>
+							<a id = "departments@58"  class="filter dropdown-item" href=#>Биохимия</a>
+							<a id = "departments@41"  class="filter dropdown-item" href=#>РДО</a>
+						</div>
+					</div>
+				<div class="col d-flex" align="center" style="font-weight: bold;" ><span id="dep" style="display: flex; justify-content: center; align-items: center" /></div>
+				</div>
+		</div>
+  </nav>
+
+	<div class="wrapper">
+		<section id="content" class="wrapper">
+		</section>
+	</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/chart.js"></script>
+<script src="js/tools.js"></script>
+<script type="module" src="js/app.js"></script>
+<script src="js/chartjs-plugin-datalabels.min.js"></script>
+<script>
+    var today = currentDate();
+    document.getElementById('app-current-date').innerHTML=today;
+
+    const parent = document.querySelector(".dropdown-menu");
+    parent.onclick = function(event) {
+        let target = event.target; // где был клик?
+        document.getElementById('depBut').innerHTML = document.getElementById(target.id).innerHTML;
+    };
+
+    document.getElementById('index').onclick = function(event) {
+        document.getElementById('depBut').innerHTML = "По подразделениям";
+    };
+
+    function updateDiv()
+    {
+    	document.getElementById('app-current-date').innerHTML= document.getElementById('DateInc').innerHTML;
+    };
+
+	document.addEventListener("load", function(){
+		updateDiv();
+	});
+
+	setInterval(updateDiv, 5000);
+</script>
+</body>
+</html>
+
