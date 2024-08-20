@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LogWriter {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public void writeInfo(String message) {
         logger.info(message);

@@ -35,7 +35,6 @@ public class ReportController {
 
         } else
             throw new PropertiesLoadException(getClass() + ": fail to load index page. Add index page to your properties.json");
-
     }
 
 
@@ -48,20 +47,11 @@ public class ReportController {
 
         } else
             throw new PropertiesLoadException(getClass() + ": fail to load index page. Add index page to your properties.json");
-
     }
 
-    /**
-     * When we can do nothing
-     *
-     * @param model
-     * @return view name
-     */
     @GetMapping(value = "500")
     public ModelAndView _500(Model model) {
         return new ModelAndView("500", HttpStatus.INTERNAL_SERVER_ERROR);
-
     }
-
 
 }

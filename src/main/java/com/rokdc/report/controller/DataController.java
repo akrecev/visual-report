@@ -40,9 +40,7 @@ public class DataController {
         Page page = pageService.get(mainPage);
 
         return new ResponseEntity<Page>(page, HttpStatus.OK);
-
     }
-
 
     @GetMapping("/api/{name}")
     public ResponseEntity<Page> getCurrentPagesSettings(
@@ -53,8 +51,7 @@ public class DataController {
         List<String> filterList = new ArrayList<String>();
 
         if (filter != null) {
-            filter.forEach((k) -> filterList.add(k));
-
+            filterList.addAll(filter);
         }
 
         //if(!name.equals(mainPage))--Обновлять только главную страницу

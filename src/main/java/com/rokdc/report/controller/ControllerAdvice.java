@@ -2,16 +2,16 @@ package com.rokdc.report.controller;
 
 import com.rokdc.report.exception.PropertiesLoadException;
 import com.rokdc.report.log.LogWriter;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
 @org.springframework.web.bind.annotation.ControllerAdvice
+@RequiredArgsConstructor
 public class ControllerAdvice {
-    @Autowired
-    private LogWriter log;
+    private final LogWriter log;
 
     @ExceptionHandler(PropertiesLoadException.class)
     public ModelAndView handlePagePropertiesLoadException(HttpServletRequest request, Exception ex) {
@@ -21,7 +21,6 @@ public class ControllerAdvice {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("exception", ex);
         modelAndView.addObject("url", request.getRequestURL());
-
         modelAndView.setViewName("500");
 
         return modelAndView;
