@@ -34,4 +34,9 @@ public class ReportController {
         return new ModelAndView("500", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    @GetMapping(value = "/test")
+    public String test() {
+        return "test";
+    }
+
 }
