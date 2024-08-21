@@ -39,7 +39,7 @@ public class DataController {
     public ResponseEntity<Page> getPagesSettings() throws PropertiesLoadException {
         Page page = pageService.get(mainPage);
 
-        return new ResponseEntity<Page>(page, HttpStatus.OK);
+        return ResponseEntity.ok(page);
     }
 
     @GetMapping("/api/{name}")
@@ -48,7 +48,7 @@ public class DataController {
             , @RequestParam(value = "filter", required = false) Set<String> filter
     ) throws PropertiesLoadException {
 
-        List<String> filterList = new ArrayList<String>();
+        List<String> filterList = new ArrayList<>();
 
         if (filter != null) {
             filterList.addAll(filter);

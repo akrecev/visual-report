@@ -35,8 +35,8 @@ public class ReportController {
     }
 
     @GetMapping(value = "/test")
-    public String test() {
-        return "test";
+    public ModelAndView test() {
+        return new ModelAndView("test", HttpStatus.I_AM_A_TEAPOT) ;
     }
 
 }
